@@ -1,0 +1,9 @@
+.navBarContainer{
+    display: grid;
+    grid-auto-flow: column;
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+    justify-items: center;
+    grid-area: navbar;
+}
