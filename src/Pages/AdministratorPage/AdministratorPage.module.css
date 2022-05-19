@@ -1,0 +1,24 @@
+main{
+    min-height: 100vh;
+    background-color: white;
+    border-radius: 10px;
+}
+h1{
+    justify-self: center;
+    height: fit-content;
+
+}
+.cascaderContainer{
+    display: grid;
+}
+.cascaderNavbar{
+    padding: 10px;
+}
+.btnsContainer{
+    display: grid;
+    justify-self: center;
+    gap: 10px;
+    grid-auto-flow: column;
+    width: 80%;
+    padding: 10px;
+}
