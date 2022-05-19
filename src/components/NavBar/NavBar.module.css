@@ -4,8 +4,13 @@
     height: fit-content;
     justify-items: center;
     grid-area: navbar;
-}
-.navbar{
     display: grid;
     grid-auto-flow: column;
+}
+.navbar{
+color: black;
+    text-decoration: none;
+}
+.active{
+    color: red;
 }
