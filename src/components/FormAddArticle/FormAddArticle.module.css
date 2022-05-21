@@ -1,0 +1,11 @@
+.form{
+    padding: 10px;
+    display: grid;
+}
+.select, .input{
+  width: 600px;
+    padding-left: 20px;
+}
+.button{
+   justify-self: right;
+}

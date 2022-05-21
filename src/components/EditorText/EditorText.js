@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { Button } from "antd";
+import { fetchPostData } from "../../redux/middleware/articlesPost";
+import { addContent } from "redux/contentSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 
 export const EditorText = () => {
+  const dispatch = useDispatch();
+  const { content } = useSelector((state) => state.contentReducer);
   const editorRef = useRef(null);
-  const [content, setContent] = useState(
-    "<p>This is the initial content of the editor.</p>"
-  );
+
   const log = () => {
     if (editorRef.current) {
-      //console.log(editorRef.current.getContent());
-      setContent(editorRef.current.getContent());
+      dispatch(addContent(editorRef.current.getContent()));
     }
   };
-  console.log(content);
+
   return (
     <div>
       <Editor
@@ -52,7 +55,9 @@ export const EditorText = () => {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <button onClick={log}>Log editor content</button>
+      <Button type={"primary"} onClick={log}>
+        Добавить контент
+      </Button>
     </div>
   );
 };
