@@ -1,0 +1,1 @@
+export { FormAddArticle } from "./FormAddArticle";
