@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Button } from "antd";
 import { fetchPostData } from "../../redux/middleware/articlesPost";
@@ -10,10 +10,11 @@ export const EditorText = () => {
   const dispatch = useDispatch();
   const { content } = useSelector((state) => state.contentReducer);
   const editorRef = useRef(null);
-
+  useEffect(() => {}, [content]);
   const log = () => {
     if (editorRef.current) {
       dispatch(addContent(editorRef.current.getContent()));
+      editorRef.current = null;
     }
   };
 

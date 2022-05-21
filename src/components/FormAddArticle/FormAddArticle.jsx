@@ -23,6 +23,7 @@ export const FormAddArticle = () => {
         data: { ...values, content: content },
       })
     );
+    dispatch(addContent(""));
   };
   return (
     <Form onFinish={onFinish} name={"addArticleForm"} className={s.form}>
