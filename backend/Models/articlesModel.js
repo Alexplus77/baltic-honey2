@@ -6,7 +6,7 @@ const articlesSchema = mongoose.Schema({
   article: [
     {
       title: String,
-      body: String,
+      content: String,
       image: String,
     },
   ],

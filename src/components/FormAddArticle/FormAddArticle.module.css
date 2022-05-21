@@ -1,11 +1,14 @@
 .form{
     padding: 10px;
     display: grid;
+    gap: 10px;
 }
 .select, .input{
   width: 600px;
     padding-left: 20px;
 }
 .button{
-   justify-self: right;
+   justify-self: center;
+    width: 50%;
+
 }
