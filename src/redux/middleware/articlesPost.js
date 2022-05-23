@@ -15,3 +15,6 @@ export const fetchAddCategory = createAsyncThunk(
       .post(`http://localhost:8080/addCategory`, category)
       .then(({ data }) => console.log(data))
 );
+export const fetchGetCategories = createAsyncThunk("contentSlice/getData", () =>
+  axios.get(`http://localhost:8080/getCategories`).then(({ data }) => data)
+);

@@ -1,11 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPostData, fetchAddCategory } from "./middleware/articlesPost";
+import {
+  fetchPostData,
+  fetchAddCategory,
+  fetchGetCategories,
+} from "./middleware/articlesPost";
 
 const contentSlice = createSlice({
   name: "contentSlice",
   initialState: {
     content: "<p>This is the initial content of the editor.</p>",
     server: "",
+    categories: [],
   },
   extraReducers: {
     [fetchPostData.fulfilled]: (state, action) => {
@@ -13,6 +18,9 @@ const contentSlice = createSlice({
     },
     [fetchAddCategory.fulfilled]: (state, action) => {
       state.server = action.payload;
+    },
+    [fetchGetCategories.fulfilled]: (state, action) => {
+      state.categories = action.payload;
     },
   },
   reducers: {
