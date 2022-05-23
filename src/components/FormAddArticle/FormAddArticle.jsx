@@ -23,6 +23,7 @@ export const FormAddArticle = () => {
         data: { ...values, content: content },
       })
     );
+    dispatch(addContent(""));
   };
   return (
     <Form onFinish={onFinish} name={"addArticleForm"} className={s.form}>
@@ -40,12 +41,12 @@ export const FormAddArticle = () => {
       <Form.Item name={"title"} className={s.input} label={"Название статьи"}>
         <Input />
       </Form.Item>
+      <EditorText />
       <Form.Item className={s.button}>
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button style={{ width: "100%" }} type="primary" htmlType="submit">
+          Сохранить статью
         </Button>
       </Form.Item>
-      <EditorText />
     </Form>
   );
 };
