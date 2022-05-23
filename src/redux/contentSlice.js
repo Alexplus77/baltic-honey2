@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPostData } from "./middleware/articlesPost";
+import { fetchPostData, fetchAddCategory } from "./middleware/articlesPost";
 
 const contentSlice = createSlice({
   name: "contentSlice",
@@ -9,6 +9,9 @@ const contentSlice = createSlice({
   },
   extraReducers: {
     [fetchPostData.fulfilled]: (state, action) => {
+      state.server = action.payload;
+    },
+    [fetchAddCategory.fulfilled]: (state, action) => {
       state.server = action.payload;
     },
   },

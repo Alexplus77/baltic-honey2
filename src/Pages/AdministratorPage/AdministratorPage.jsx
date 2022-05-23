@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import s from "./AdministratorPage.module.css";
-import { EditorText } from "components/EditorText";
+import { FormAddCategory } from "components/FormAddCategory";
 import { FormAddArticle } from "components/FormAddArticle";
 import { navbarTitle, asideList } from "DataBase/navbarTitle";
 import { Button, Cascader } from "antd";
@@ -24,6 +24,7 @@ export const AdministratorPage = () => {
           <Button type={"primary"}>Добавить раздел в боковое меню</Button>
           <Button type={"primary"}>Добавить статью</Button>
         </div>
+        <FormAddCategory />
         <FormAddArticle />
       </div>
     </main>
