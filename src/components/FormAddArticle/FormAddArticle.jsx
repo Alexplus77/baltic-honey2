@@ -13,6 +13,7 @@ const categories = [
   { name: "Интересное о пчелах" },
   { name: "Продукты пчеловодства" },
 ];
+const blockMenu = ["navbar", "asideMenu"];
 export const FormAddArticle = () => {
   const dispatch = useDispatch();
   const { content } = useSelector((state) => state.contentReducer);
@@ -27,6 +28,17 @@ export const FormAddArticle = () => {
   };
   return (
     <Form onFinish={onFinish} name={"addArticleForm"} className={s.form}>
+      <Form.Item
+        name={"blockMenu"}
+        className={s.select}
+        label={"Выберите блок меню"}
+      >
+        <Select placeholder={"Выберите блок меню"}>
+          {blockMenu.map((block) => (
+            <Select.Option key={block}>{block}</Select.Option>
+          ))}
+        </Select>
+      </Form.Item>
       <Form.Item
         name={"category"}
         className={s.select}
