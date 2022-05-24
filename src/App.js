@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchGetCategories());
   }, []);
-  console.log(categories);
+
   return (
     <div className="App">
       <Routers />

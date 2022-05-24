@@ -1,10 +1,10 @@
 import React from "react";
-import s from "./AboutBee.module.css";
+import s from "./AsideBlockMenu.module.css";
 const aboutBeeList = ["Видео", "Медоносы вокруг пасеки"];
-export const AboutBee = () => {
+export const AsideBlockMenu = ({ item }) => {
   return (
     <div className={s.container}>
-      <h3>Интересное о пчелах</h3>
+      <h3>{item.name}</h3>
       <ul>
         {aboutBeeList.map((el) => (
           <li key={el}>{el}</li>
