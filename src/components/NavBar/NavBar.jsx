@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { navbarTitle } from "DataBase/navbarTitle";
 import { useSelector } from "react-redux";
 
 export const NavBar = () => {
@@ -18,7 +17,7 @@ export const NavBar = () => {
         <NavLink
           className={activeClass}
           key={link._id}
-          to={link.name === "Main" ? "/" : `/${link.name}`}
+          to={link.name === "Main" ? "/" : `/${link.name}/${link.name}`}
         >
           {link.name}
         </NavLink>

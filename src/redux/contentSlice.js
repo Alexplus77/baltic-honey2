@@ -3,6 +3,7 @@ import {
   fetchPostData,
   fetchAddCategory,
   fetchGetCategories,
+  fetchGetArticles,
 } from "./middleware/articlesPost";
 
 const contentSlice = createSlice({
@@ -11,16 +12,23 @@ const contentSlice = createSlice({
     content: "<p>This is the initial content of the editor.</p>",
     server: "",
     categories: [],
+    toggleEditMod: false,
+    articles: [],
   },
   extraReducers: {
     [fetchPostData.fulfilled]: (state, action) => {
       state.server = action.payload;
+      state.toggleEditMod = !state.toggleEditMod;
     },
     [fetchAddCategory.fulfilled]: (state, action) => {
       state.server = action.payload;
+      state.toggleEditMod = !state.toggleEditMod;
     },
     [fetchGetCategories.fulfilled]: (state, action) => {
       state.categories = action.payload;
+    },
+    [fetchGetArticles.fulfilled]: (state, action) => {
+      state.articles = action.payload;
     },
   },
   reducers: {

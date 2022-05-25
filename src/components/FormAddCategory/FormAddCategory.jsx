@@ -1,10 +1,11 @@
 import React from "react";
 import { Form, Select, Button, Input } from "antd";
-import s from "../FormAddArticle/FormAddArticle.module.css";
-import { fetchAddCategory } from "../../redux/middleware/articlesPost";
+import s from "components/FormAddArticle/FormAddArticle.module.css";
+import { fetchAddCategory } from "redux/middleware/articlesPost";
+import { blockMenu } from "CommonFiles/blockMenu";
 import { useDispatch } from "react-redux";
-import { addContent } from "../../redux/contentSlice";
-const blockMenu = ["navbar", "menuAside"];
+import { addContent } from "redux/contentSlice";
+
 export const FormAddCategory = () => {
   const dispatch = useDispatch();
   const onFinish = (values) => {

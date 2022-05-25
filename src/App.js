@@ -6,10 +6,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const { categories } = useSelector((state) => state.contentReducer);
+  const { toggleEditMod } = useSelector((state) => state.contentReducer);
   useEffect(() => {
     dispatch(fetchGetCategories());
-  }, []);
+  }, [toggleEditMod]);
 
   return (
     <div className="App">
