@@ -18,5 +18,7 @@ exports.getCategories = (req, res) => {
         },
       ])
       .then((data) => res.send(data));
-  } catch (e) {}
+  } catch (e) {
+    console.log("errorFromGetCategoriesController", e);
+  }
 };
