@@ -1,7 +1,13 @@
-const Articles = require("../Models/articlesModel");
+const Articles = require("../Models/siteConstructionModel");
+const BlockMenuModel = require("../Models/blockMenuModel");
 
 exports.getCategories = (req, res) => {
-  // для первоночального создания blockMenuName раскоментировать
+  BlockMenuModel.findOne({ title: "navbar" }, (error, result) => {
+    !result && new BlockMenuModel({ title: "navbar" }).save();
+  });
+  BlockMenuModel.findOne({ title: "menuAside" }, (error, result) => {
+    !result && new BlockMenuModel({ title: "menuAside" }).save();
+  });
 
   try {
     Articles.find({}, {}, (error, result) => {

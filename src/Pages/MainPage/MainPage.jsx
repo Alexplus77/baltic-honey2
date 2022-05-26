@@ -12,7 +12,14 @@ export const MainPage = () => {
       ? dispatch(fetchGetArticles({ category: "Main", name: "Main" }))
       : dispatch(fetchGetArticles(params));
   }, [params.name]);
-  console.log("articles", articles);
 
-  return <div className={s.container}></div>;
+  {
+    /*<div dangerouslySetInnerHTML={{ __html: content }} />*/
+  }
+  return (
+    <div
+      className={s.container}
+      dangerouslySetInnerHTML={{ __html: articles.content }}
+    ></div>
+  );
 };

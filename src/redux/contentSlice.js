@@ -4,18 +4,23 @@ import {
   fetchAddCategory,
   fetchGetCategories,
   fetchGetArticles,
+  fetchGetBlockMenu,
 } from "./middleware/articlesPost";
 
 const contentSlice = createSlice({
   name: "contentSlice",
   initialState: {
     content: "<p>This is the initial content of the editor.</p>",
+    blockMenu: [],
     server: "",
     categories: [],
     toggleEditMod: false,
     articles: [],
   },
   extraReducers: {
+    [fetchGetBlockMenu.fulfilled]: (state, action) => {
+      state.blockMenu = action.payload;
+    },
     [fetchPostData.fulfilled]: (state, action) => {
       state.server = action.payload;
       state.toggleEditMod = !state.toggleEditMod;

@@ -3,8 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import s from "./AsideBlockMenu.module.css";
 
 export const AsideBlockMenu = ({ item }) => {
-  console.log("item", item);
-
   return (
     <div className={s.container}>
       <h3>{item.name}</h3>

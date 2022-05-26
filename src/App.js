@@ -1,5 +1,8 @@
 import { Routers } from "./Routers";
-import { fetchGetCategories } from "./redux/middleware/articlesPost";
+import {
+  fetchGetCategories,
+  fetchGetBlockMenu,
+} from "./redux/middleware/articlesPost";
 import "./App.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,6 +12,7 @@ function App() {
   const { toggleEditMod } = useSelector((state) => state.contentReducer);
   useEffect(() => {
     dispatch(fetchGetCategories());
+    dispatch(fetchGetBlockMenu());
   }, [toggleEditMod]);
 
   return (

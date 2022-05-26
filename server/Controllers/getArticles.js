@@ -1,4 +1,4 @@
-const Articles = require("../Models/articlesModel");
+const Articles = require("../Models/siteConstructionModel");
 
 exports.getArticles = (req, res) => {
   try {

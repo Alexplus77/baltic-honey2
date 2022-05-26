@@ -25,3 +25,7 @@ export const fetchGetArticles = createAsyncThunk(
       .post(`http://localhost:8080/getArticles`, params)
       .then(({ data }) => data)
 );
+export const fetchGetBlockMenu = createAsyncThunk(
+  "contentSlice/getBlockMenu",
+  () => axios.get(`http://localhost:8080/getBlockMenu`).then(({ data }) => data)
+);

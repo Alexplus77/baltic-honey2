@@ -17,7 +17,6 @@ export const FormAddArticle = () => {
   const blockMenu = categories.map(({ blockMenuName }) => blockMenuName);
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", { ...values, content: content });
     dispatch(
       fetchPostData({
         data: { ...values, content: content },
@@ -29,7 +28,7 @@ export const FormAddArticle = () => {
   const handleSelectBlock = (value) => {
     setBlockNav(value);
   };
-  console.log(categories);
+
   return (
     <Form onFinish={onFinish} name={"addArticleForm"} className={s.form}>
       <Form.Item

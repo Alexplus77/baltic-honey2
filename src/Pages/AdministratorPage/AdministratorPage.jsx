@@ -4,6 +4,7 @@ import s from "./AdministratorPage.module.css";
 import { FormAddCategory } from "components/FormAddCategory";
 import { FormAddArticle } from "components/FormAddArticle";
 import { Button, Cascader } from "antd";
+import { ArticlesList } from "components/ArticlesList";
 
 export const AdministratorPage = () => {
   const onChange = (value) => {};
@@ -18,6 +19,7 @@ export const AdministratorPage = () => {
           <Button type={"primary"}>Добавить раздел в боковое меню</Button>
           <Button type={"primary"}>Добавить статью</Button>
         </div>
+        <ArticlesList />
         <FormAddCategory />
         <FormAddArticle />
       </div>

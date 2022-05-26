@@ -1,4 +1,4 @@
-const Articles = require("../Models/articlesModel");
+const Articles = require("../Models/siteConstructionModel");
 exports.articlesPostControllers = (req, res) => {
   try {
     console.log(req.body);
