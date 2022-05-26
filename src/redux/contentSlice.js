@@ -5,6 +5,7 @@ import {
   fetchGetCategories,
   fetchGetArticles,
   fetchGetBlockMenu,
+  fetchGetCategoriesMenu,
 } from "./middleware/articlesPost";
 
 const contentSlice = createSlice({
@@ -16,8 +17,12 @@ const contentSlice = createSlice({
     categories: [],
     toggleEditMod: false,
     articles: [],
+    categoriesMenu: [],
   },
   extraReducers: {
+    [fetchGetCategoriesMenu.fulfilled]: (state, action) => {
+      state.categoriesMenu = action.payload;
+    },
     [fetchGetBlockMenu.fulfilled]: (state, action) => {
       state.blockMenu = action.payload;
     },

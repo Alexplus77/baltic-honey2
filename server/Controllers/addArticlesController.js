@@ -1,22 +1,13 @@
-const Articles = require("../Models/siteConstructionModel");
+const Articles = require("../Models/articleModel");
 exports.articlesPostControllers = (req, res) => {
   try {
     console.log(req.body);
-    Articles.findOneAndUpdate(
-      { blockMenuName: req.body.blockMenu, "category.name": req.body.category },
-      {
-        $push: {
-          "category.$.articles": {
-            title: req.body.title,
-            content: req.body.content,
-          },
-        },
-      },
-      (err, doc) => {
-        err && console.log(err);
-        console.log(doc);
-      }
-    );
+    new Articles({
+      blockMenu: req.body.blockMenu,
+      category: req.body.category,
+      title: req.body.title,
+      content: req.body.content,
+    }).save();
   } catch (e) {
     console.log(e);
   }

@@ -2,6 +2,7 @@ import { Routers } from "./Routers";
 import {
   fetchGetCategories,
   fetchGetBlockMenu,
+  fetchGetCategoriesMenu,
 } from "./redux/middleware/articlesPost";
 import "./App.css";
 import { useEffect } from "react";

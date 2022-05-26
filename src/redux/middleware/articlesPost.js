@@ -29,3 +29,10 @@ export const fetchGetBlockMenu = createAsyncThunk(
   "contentSlice/getBlockMenu",
   () => axios.get(`http://localhost:8080/getBlockMenu`).then(({ data }) => data)
 );
+export const fetchGetCategoriesMenu = createAsyncThunk(
+  "contentSlice/getCategories",
+  (id) =>
+    axios
+      .get(`http://localhost:8080/getCategoriesMenu/${id}`)
+      .then(({ data }) => data)
+);

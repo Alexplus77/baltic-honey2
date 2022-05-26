@@ -1,5 +1,5 @@
-const Articles = require("../Models/siteConstructionModel");
 const BlockMenuModel = require("../Models/blockMenuModel");
+const CategoryModel = require("../Models/categoryModel");
 
 exports.getCategories = (req, res) => {
   BlockMenuModel.findOne({ title: "navbar" }, (error, result) => {
@@ -10,18 +10,13 @@ exports.getCategories = (req, res) => {
   });
 
   try {
-    Articles.find({}, {}, (error, result) => {
-      error && console.log("errorGetCategories", error);
-      // const response = result.reduce((acc, elem) => {
-      //   if (elem.category.length) {
-      //     acc[elem.blockMenuName] = elem.category.map((elem) => ({
-      //       name: elem.name,
-      //       id: elem._id,
-      //     }));
-      //   }
-      //   return acc;
-      // }, {});
-      res.send(result);
-    });
+    CategoryModel.find({})
+      .populate([
+        {
+          path: "blockMenu",
+          model: "BlockMenuModel",
+        },
+      ])
+      .then((data) => res.send(data));
   } catch (e) {}
 };

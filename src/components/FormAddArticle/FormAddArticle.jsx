@@ -3,30 +3,30 @@ import { Form, Input, Select, Button } from "antd";
 import s from "./FormAddArticle.module.css";
 import { EditorText } from "components/EditorText";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPostData } from "../../redux/middleware/articlesPost";
+import {
+  fetchGetCategoriesMenu,
+  fetchPostData,
+} from "../../redux/middleware/articlesPost";
 import { addContent } from "../../redux/contentSlice";
 
 export const FormAddArticle = () => {
   const dispatch = useDispatch();
-  const [blockNav, setBlockNav] = useState("");
-  const { content, categories } = useSelector((state) => state.contentReducer);
-
-  const categoriesList = categories.find(
-    (category) => category.blockMenuName === blockNav
-  )?.category;
-  const blockMenu = categories.map(({ blockMenuName }) => blockMenuName);
+  const { content, categories, blockMenu, categoriesMenu } = useSelector(
+    (state) => state.contentReducer
+  );
 
   const onFinish = (values) => {
+    console.log("values", { ...values, content: content });
     dispatch(
       fetchPostData({
         data: { ...values, content: content },
       })
     );
-    setBlockNav("");
+
     dispatch(addContent(""));
   };
   const handleSelectBlock = (value) => {
-    setBlockNav(value);
+    dispatch(fetchGetCategoriesMenu(value));
   };
 
   return (
@@ -38,7 +38,7 @@ export const FormAddArticle = () => {
       >
         <Select onChange={handleSelectBlock} placeholder={"Выберите блок меню"}>
           {blockMenu?.map((block) => (
-            <Select.Option key={block}>{block}</Select.Option>
+            <Select.Option key={block._id}>{block.title}</Select.Option>
           ))}
         </Select>
       </Form.Item>
@@ -48,10 +48,8 @@ export const FormAddArticle = () => {
         label={"Выберите раздел"}
       >
         <Select placeholder={"Выберите категорию"}>
-          {categoriesList?.map((category) => (
-            <Select.Option value={category.name} key={category.name}>
-              {category.name}
-            </Select.Option>
+          {categoriesMenu?.map((category) => (
+            <Select.Option key={category._id}>{category.title}</Select.Option>
           ))}
         </Select>
       </Form.Item>
